@@ -1,5 +1,7 @@
 name: Continuous Integration
-
+env:
+   APPLICATION_NAME    : "NyFlask"
+   DEPLOY_PACKAGE_NAME : "flask-deploy-ver_${{ github.sha }}"
 on:
   push:
     branches:
@@ -11,6 +13,12 @@ jobs:
     steps: 
     - name: Print Hello Messages
       run: echo "Hello World from testing job"
+
+     - name: Execure few commands
+       run : |
+         echo "Hello Message1"
+         echo "Hello Message2"
+         echo "Application name: $ {{ env.APPLICATTION_NAME }}"
     
   my_deploy:
     runs-on: ubuntu-latest  
@@ -19,3 +27,7 @@ jobs:
     steps: 
     - name: Print Hello Messages
       run: echo "Hello World from Deploy job"
+      
+    - name: Printing Deployment package
+      run : echo "Deploy package name is ${{ env.DEPLOY_PACKAGE-NAME }}"
+      
