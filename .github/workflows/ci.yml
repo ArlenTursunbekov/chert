@@ -4,33 +4,17 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
-
 jobs:
-  build:
+  my_testing:
+    runs-on: ubuntu-latest
+    
+    steps: 
+    - name: Print Hello Messages
+      run: echo "Hello World from testing job"
+    
+  my_deploy:
     runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build application
-      run: npm run build
-
-    - name: Run unit tests
-      run: npm test
-
-    - name: Archive artifacts
-      run: |
-        mkdir -p dist
-        cp index.html script.js styles.css dist/
+    steps: 
+    - name: Print Hello Messages
+      run: echo "Hello World from Deploy job"
