@@ -37,6 +37,13 @@ jobs:
     - name: Run unit tests
       run: npm test
 
+    - name: Create deployment artifact
+      run: |
+        mkdir artifacts
+        cp -r dist artifacts/
+        cp package.json artifacts/
+        cp package-lock.json artifacts/
+
     - name: List current folder
       run: ls -la
     
