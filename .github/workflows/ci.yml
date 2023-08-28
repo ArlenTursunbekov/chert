@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps: 
-    - name: Print Hello Messages
+    - name: Print Hello Messages1
       run: echo "Hello World from testing job"
 
     - name: Execute few commands
